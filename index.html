@@ -1,0 +1,50 @@
+<html>
+    <style>
+        .box {
+        width: 400px;
+        height: 20px;
+        border: 1px solid black;
+       }   
+
+       .progressbar{
+        text-align: left;
+        width: 0%;
+        height: 100%;
+        }    
+    </style>  
+    
+    <head>
+        <title>Progress Bar</title>
+    </head>
+
+    <body>
+        <input type="number" id = "inputPercentage" ><br><br>    
+        <button type = "button" id = "btn" onclick = "apply()" >Apply</button><br><br><br>
+        <div class = "box" >
+            <div class = "progressbar" style="width: 50%; margin: 0;"></div>
+        </div>
+    </body>
+
+    <script>
+        document.querySelector("button").addEventListener('click', () => {
+            let progressBar = document.querySelector('div.progressbar');
+            let progressBarPercentage = document.getElementById('inputPercentage').value;
+            progressBar.style.width = progressBarPercentage + '%';
+            
+            if (progressBarPercentage < 20){
+                progressBar.style.backgroundColor = "red";
+                progressBar.style.width = progressBarPercentage + '%';  
+            } else if (progressBarPercentage >= 20 && progressBarPercentage < 75) {
+                progressBar.style.backgroundColor = "yellow";
+                progressBar.style.width = progressBarPercentage + '%';        
+            } else if (progressBarPercentage >= 75 && progressBar <= 100) {
+                progressBar.style.backgroundColor = "green";
+                progressBar.style.width = progressBarPercentage + '%';
+            } else if (progressBarPercentage > 100) {
+                progressBar.style.backgroundColor = "green";
+                progressBar.style.width = 100 + '%';
+           }    
+        });          
+    </script>
+
+</html> 
